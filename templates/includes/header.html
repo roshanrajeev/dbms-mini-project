@@ -1,6 +1,6 @@
 <nav class="nav" style="display: flex; align-items: center">
-    <p>Hello {{user.first_name}}👋</p>
+    <p>Hello {{request.user.first_name}}👋</p>
     &nbsp;&nbsp;&nbsp; <a href="{% url 'home' %}">Home</a>&nbsp;&nbsp;&nbsp;
-    <a href="{% url 'profile' %}">Profile</a>&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'profile' id=user.id %}">Profile</a>&nbsp;&nbsp;&nbsp;
     <a href="{% url 'logout' %}">Logout</a>
 </nav>

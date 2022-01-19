@@ -16,7 +16,6 @@ def home(request):
     print(questions)
 
     context["questions"] = questions
-    context['user'] = request.user
     context['form'] = QuestionForm
 
     return render(request, 'home.html', context)
@@ -78,9 +77,15 @@ def logout(request):
 
 
 @login_required
-def profile(request):
+def profile(request, id):
     context = {}
-    context['user'] = request.user
+    user = None
+    try:
+        user = User.objects.get(id=id)
+    except User.DoesNotExist:
+        return HttpResponseNotFound()
+
+    context['user'] = user
     return render(request, 'profile.html', context)
 
 

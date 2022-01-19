@@ -34,4 +34,4 @@ class QuestionForm(forms.Form):
 
 
 class AnswerForm(forms.Form):
-    text = forms.CharField(widget=forms.Textarea, required=True, label="Question")
+    text = forms.CharField(widget=forms.Textarea, required=True, label="Answer")
