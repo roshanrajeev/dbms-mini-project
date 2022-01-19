@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.decorators import login_required
 
-from app.models import Answer, Question, User
+from app.models import Answer, Question, QuestionDepartment, User
 
 from .forms import AnswerForm, LoginForm, QuestionForm, RegisterForm
 
@@ -90,8 +90,12 @@ def add_question(request):
         form = QuestionForm(request.POST)
         if form.is_valid():
             text = form.cleaned_data.get('text')
+            department = form.cleaned_data.get('department')
+            
             question = Question(text=text, user=request.user)
+            qdpt = QuestionDepartment(question=question, department=department)
             question.save()
+            qdpt.save()
         
         return redirect('home')
 
