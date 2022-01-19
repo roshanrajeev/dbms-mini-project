@@ -66,7 +66,5 @@ class Answer(models.Model):
 
 
 class Upvote(models.Model):
-    question = models.ForeignKey(
-        Question, on_delete=models.CASCADE, related_name="upvotes"
-    )
+    answer = models.ForeignKey(Answer, on_delete=models.CASCADE, related_name="upvotes")
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="upvotes")

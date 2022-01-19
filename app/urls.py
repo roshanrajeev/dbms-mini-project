@@ -1,5 +1,16 @@
 from django.urls import path, include
-from .views import home, login, logout, register, profile, add_question, view_question, add_answer
+from .views import (
+    home,
+    login,
+    logout,
+    register,
+    profile,
+    add_question,
+    upvote,
+    view_question,
+    add_answer,
+    downvote,
+)
 
 urlpatterns = [
     path("home/", home, name="home"),
@@ -10,5 +21,7 @@ urlpatterns = [
     # path("profile/<int:id>/", profile, name="profile"),
     path("questions/add/", add_question, name="add_question"),
     path("questions/<int:id>/", view_question, name="view_question"),
-    path("questions/<int:id>/add_answer/", add_answer, name="add_answer")
+    path("questions/<int:id>/add_answer/", add_answer, name="add_answer"),
+    path("upvote/<int:id>/", upvote, name="upvote"),
+    path("downvote/<int:id>/", downvote, name="downvote"),
 ]
