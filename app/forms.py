@@ -31,3 +31,7 @@ class QuestionForm(forms.Form):
 
     text = forms.CharField(widget=forms.Textarea, required=True, label="Question")
     department = forms.ChoiceField(choices=DEPARTMENT_CHOICES, required=True, label="Department")
+
+
+class AnswerForm(forms.Form):
+    text = forms.CharField(widget=forms.Textarea, required=True, label="Question")

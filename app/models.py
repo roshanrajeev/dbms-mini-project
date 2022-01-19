@@ -37,7 +37,7 @@ class Question(models.Model):
 
 class Answer(models.Model):
     text = models.TextField(blank=False, null=False)
-    question = models.OneToOneField(Question, on_delete=models.CASCADE, related_name="answer")
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name="answers")
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="answers")   
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
