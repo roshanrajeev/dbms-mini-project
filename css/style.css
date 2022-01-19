@@ -12,6 +12,12 @@ body{
     height: 100%;
 
 }
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
 
 html{
     height: 100%;
@@ -90,9 +96,6 @@ html{
     outline : none !important;
 }
 
-.btn:active{
-    
-}
 
 .btn-info:hover{
     background-color: #9c1c05 !important;
