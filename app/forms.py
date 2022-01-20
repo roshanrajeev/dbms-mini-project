@@ -21,17 +21,18 @@ class LoginForm(forms.Form):
     )
     password = forms.CharField(
         max_length=30, label="Password", widget=forms.PasswordInput(), required=True
-    )
+    )   
 
 
 class QuestionForm(forms.ModelForm):
     class Meta:
         model = Question
         fields = ("text", "department")
-
-     # text = forms.CharField(widget=forms.Textarea, required=True, label="Question")
-     # department = forms.Foreign(choices=DEPARTMENT_CHOICES, required=True, label="Department")
+        widgets = {
+            'text': forms.Textarea(attrs={'placeholder': 'Type your question here...'})
+        }
 
 
 class AnswerForm(forms.Form):
-    text = forms.CharField(widget=forms.Textarea, required=True, label="Answer")
+    text = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Type your answer here...'}), required=True, label="Answer" )
+    
