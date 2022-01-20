@@ -46,7 +46,8 @@ html{
     word-wrap: break-word;
     background-clip: border-box;
     border: 0 solid rgba(0,0,0,.125);
-    border-radius: .25rem;
+    border-radius: .15rem;
+    /* font-size: larger; */
 }
 
 .card-body {
@@ -54,11 +55,16 @@ html{
     min-height: 1px;
     padding: 1rem;
     background-color:white;
+    border-radius: .15rem;
+}
+
+.quest-card:hover{
+    background-color:rgb(247, 246, 246) !important;
 }
 
 .quest-card{
-    
-    border-radius: 1px;
+
+    border-radius: .15rem;
     border: 2px;
     border-color: black;
 }
@@ -109,3 +115,14 @@ html{
     border-color: #9c1c05 !important;
 }
 
+.ask-quest{
+    height: 5em;
+    border-radius: .15em !important;
+}
+
+.ask-disp{
+    border: none;
+    height: 100%;
+    width: 100%;
+    border-radius: .15em !important;
+}
