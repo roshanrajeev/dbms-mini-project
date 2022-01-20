@@ -6,7 +6,7 @@ body{
     line-height: var(--bs-body-line-height);
     color: var(--bs-body-color);
     text-align: var(--bs-body-text-align);
-    background-color: #faf6f5;
+    background-color: rgb(226, 226, 226) !important; 
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
     height: 100%;
@@ -53,7 +53,14 @@ html{
     flex: 1 1 auto;
     min-height: 1px;
     padding: 1rem;
-    background-color:rgb(255 225 225);
+    background-color:white;
+}
+
+.quest-card{
+    
+    border-radius: 1px;
+    border: 2px;
+    border-color: black;
 }
 
 .gutters-sm {
