@@ -31,7 +31,7 @@
             {% for answer in answers %}
             <div class="border-top border-black mt-2 pt-3" style="display: flex; justify-content: space-between; height: auto;" >
                 <div>
-                    <a href="{% url 'profile' id=answer.user.id %}" class="text-decoration-none text-dark" style="font-size: .95em; font-weight:650">{{answer.user.first_name}}</a>
+                    <a href="{% url 'profile' id=answer.user.id %}" class="text-decoration-none text-dark" style="font-size: .95em; font-weight:650; width:100%">{{answer.user.first_name}}</a>
                 </div>
                 <div>
                     <p>{{answer.text}}</p>
@@ -42,10 +42,9 @@
                     </p>
                 </div>                
             </div>
+            {% endfor %}
         </div>        
     </div>
     
 </div>
-
-{% endfor %}
 {% endblock %}
