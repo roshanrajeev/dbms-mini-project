@@ -29,8 +29,8 @@ class QuestionForm(forms.ModelForm):
         model = Question
         fields = ("text", "department")
 
-    # text = forms.CharField(widget=forms.Textarea, required=True, label="Question")
-    # department = forms.Foreign(choices=DEPARTMENT_CHOICES, required=True, label="Department")
+     # text = forms.CharField(widget=forms.Textarea, required=True, label="Question")
+     # department = forms.Foreign(choices=DEPARTMENT_CHOICES, required=True, label="Department")
 
 
 class AnswerForm(forms.Form):

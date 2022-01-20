@@ -10,12 +10,12 @@
 {% include 'includes/header.html' %}
 
 <div class="container" style="margin-top: 6em;">
-    <div class="ask-question">
+    <!-- <div class="ask-question">
         <form action="{% url 'add_question' %}" method="post">
             {% csrf_token %} {{form}} <button type="submit">Add Question</button>
         </form>
-    </div>
-
+    </div> -->
+    
     <div class="row">
         <div class="selection-big d-none d-md-block col-md-2"> 
             <!-- this is hidden on and below small devices -->
@@ -26,6 +26,21 @@
             <!-- Selection small -->
         </div>
         <div class="main col-xs-12 col-12 col-md-8">
+            <div class="ask-quest card quest-card col-12 bg-dark mb-4">
+                <div class="card-body">
+                    <div class="post-infos" style="padding-bottom: 0%;">
+                        <!-- <a class="text-dark text-decoration-none" href=""><p class="h6 card-title mb-2 mt-0">Joel Jhone Geroge</p></a> -->
+                        <h5 class="h5 card-title ms-2 mb-2 mt-0 text-muted">Ask Something...</h5>
+                    </div>
+                    <div class="question">
+                            <form action="{% url 'add_question' %}" method="post">
+                                <!-- <label for="your_name" class="text-muted">Ask Something</label> -->
+                                {% csrf_token %} {{form}}
+                                <button type="submit" class="btn btn-info shadow-none">Post Question</button>
+                            </form>
+                    </div>
+                </div>
+            </div>
             <!-- List of Questions -->
             {% for question in questions %}
             <div class="card col-12 bg-dark" style="width: 100%; margin-top: .5em; height: auto;">
@@ -44,7 +59,7 @@
                                 <!-- <div class="text-center">votes</div> -->
                             </div>
                             <div class="votes col-2">
-                                <div class="mini-counts text-center"><span>0</span> asnswers</div>
+                                <div class="mini-counts text-center"><span>0</span> answers</div>
                                 <!-- <div class="text-center">asnswers</div> -->
                             </div>
                         </div>
