@@ -1,0 +1,128 @@
+body{
+    margin: 0;
+    font-family: var(--bs-body-font-family);
+    font-size: var(--bs-body-font-size);
+    font-weight: var(--bs-body-font-weight);
+    line-height: var(--bs-body-line-height);
+    color: var(--bs-body-color);
+    text-align: var(--bs-body-text-align);
+    background-color: rgb(226, 226, 226) !important; 
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    height: 100%;
+
+}
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+html{
+    height: 100%;
+}
+.header{
+    background-color: black;
+}
+.container{
+    height: 100%;
+}
+.main-body {
+    padding: 15px;
+    height: auto;
+}
+.card {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+    height: 430px;
+    /* background-color: #ff4b2b; */
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .15rem;
+    /* font-size: larger; */
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+    background-color:white;
+    border-radius: .15rem;
+}
+
+.quest-card:hover{
+    background-color:rgb(247, 246, 246) !important;
+}
+
+.quest-card{
+
+    border-radius: .15rem;
+    border: 2px;
+    border-color: black;
+}
+
+.gutters-sm {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+
+.gutters-sm>.col, .gutters-sm>[class*=col-] {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+.mb-3, .my-3 {
+    margin-bottom: 1rem!important;
+}
+
+.bg-gray-300 {
+    background-color: #e2e8f0;
+}
+.h-100 {
+    height: 100%!important;
+}
+.shadow-none {
+    box-shadow: none!important;
+}
+
+.btn
+{
+    background-color: #ff4b2b !important;
+    border-color: #ff4b2b !important;
+    border-radius: 20px !important;
+    
+}
+
+
+
+.btn-info {
+    color: rgb(255, 255, 255) !important;
+    background-color: #ff4b2b !important;
+    border-color: #ff4b2b !important;
+    outline : none !important;
+}
+
+
+.btn-info:hover{
+    background-color: #9c1c05 !important;
+    border-color: #9c1c05 !important;
+}
+
+.ask-quest{
+    height: 5em;
+    border-radius: .15em !important;
+}
+
+.ask-disp{
+    border: none;
+    height: 100%;
+    width: 100%;
+    border-radius: .15em !important;
+}
