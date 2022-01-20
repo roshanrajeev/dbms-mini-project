@@ -112,13 +112,7 @@ html {
 }
 
 .ask-quest {
-  height: 5em;
+  height: auto;
   border-radius: 0.15em !important;
 }
 
-.ask-disp {
-  border: none;
-  height: 100%;
-  width: 100%;
-  border-radius: 0.15em !important;
-}
