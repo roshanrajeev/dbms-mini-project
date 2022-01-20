@@ -12,7 +12,7 @@
 
 {% for answer in answers %}
 <div style="display: flex; justify-content: space-between;">
-    <p>{{answer.text}}</p>
+    <p>{{answer.text}} | <b>{{ answer.upvote_count }}</b> votes <a href="{% url 'vote' id=answer.id %}">Upvote/Downvote</a></p>
     <p>
         {% if answer.user.type == 'TEACHER'%}
         <span>F</span>&nbsp;&nbsp;

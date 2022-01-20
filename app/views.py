@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ObjectDoesNotExist
 
 from .models import Answer, Question, Upvote, User
 
@@ -148,17 +149,37 @@ def add_answer(request, id):
     return HttpResponseNotFound()
 
 
+# @login_required
+# def upvote(request, id):
+#     question = None
+#     try:
+#         question = Question.objects.get(id=id)
+#     except Question.DoesNotExist:
+#         return redirect("home")
+#
+#     Upvote(question=question, user=request.user).save()
+#     return redirect("home")
+
+
 @login_required
-def upvote(request, id):
-    question = None
+def vote_view(request, id):
+    context = {}
     try:
-        question = Question.objects.get(id=id)
-    except Question.DoesNotExist:
-        return redirect("home")
-
-    Upvote(question=question, user=request.user).save()
-    return redirect("home")
-
-
-def downvote(request, id):
-    pass
+            answer = Answer.objects.get(id=id)
+    except ObjectDoesNotExist:
+        return HttpResponse("Answer Not found!!")
+    try:
+        upvote = Upvote.objects.get(answer=answer, user=request.user)
+        upvote.delete()
+        answer.upvote_count-=1
+        answer.save()
+        print("Downvoted")
+        # return redirect('home')
+        return view_question(request, answer.question.id)
+    except ObjectDoesNotExist:
+        Upvote.objects.create(answer=answer, user=request.user)
+        answer.upvote_count+=1
+        answer.save()
+        print("UpVoted")
+        # return redirect('home')
+        return view_question(request, answer.question.id)
