@@ -120,7 +120,7 @@ def view_question(request, id):
     except (Question.DoesNotExist):
         return HttpResponseNotFound()
 
-    answers = Answer.objects.filter(question=question)
+    answers = Answer.objects.filter(question=question).order_by('-upvote_count')
 
     context["question"] = question
     context["form"] = AnswerForm()
