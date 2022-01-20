@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %} {% include 'includes/header.html' %}
+
+<p>{{user.college_email}}</p>
+
+<p>
+    {% if user.first_name%} {{user.first_name}} {% endif %} {% if user.last_name %}
+    {{user.last_name}} {% endif %}
+</p>
+{% if user.personal_email %}
+<p>{{user.personal_email}}</p>
+{% endif %}
+
+<p>{{user.type}}</p>
+{% endblock %}

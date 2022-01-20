@@ -1,0 +1,8 @@
+{% extends 'base.html' %} {% block content %} {% if msg %}
+<p>{{msg}}</p>
+{% endif %}
+<form action="{% url 'login' %}" method="POST">
+    {% csrf_token %} {{form}}
+    <button type="submit">login</button>
+</form>
+{% endblock %}

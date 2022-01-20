@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %} {% include 'includes/header.html' %}
+
+<div class="ask-question">
+    <form action="{% url 'add_question' %}" method="post">
+        {% csrf_token %} {{form}} <button type="submit">Add Question</button>
+    </form>
+</div>
+
+<div class="questions">
+    {% for question in questions %}
+    <p>
+        <a href="{% url 'view_question' id=question.id %}">{{question.text}}</a>
+    </p>
+
+    {% endfor %}
+</div>
+{% endblock %}
