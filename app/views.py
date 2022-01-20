@@ -174,12 +174,10 @@ def vote_view(request, id):
         answer.upvote_count-=1
         answer.save()
         print("Downvoted")
-        # return redirect('home')
-        return view_question(request, answer.question.id)
+        return redirect('view_question', id=answer.question.id)
     except ObjectDoesNotExist:
         Upvote.objects.create(answer=answer, user=request.user)
         answer.upvote_count+=1
         answer.save()
         print("UpVoted")
-        # return redirect('home')
-        return view_question(request, answer.question.id)
+        return redirect('view_question', id=answer.question.id)
