@@ -26,12 +26,12 @@
             <div class="overlay-panel overlay-left">
                 <h1>Welcome Back!</h1>
                 <p>To keep connected with our community please login with your personal info</p>
-                <button class="ghost" id="signIn">Sign In</button>
+                <a class="ghost" id="login" href="{% url 'login' %}"><button class="ghost" id="signIn">Sign In</button></a>
             </div>
             <div class="overlay-panel overlay-right">
                 <h1>Hello!</h1>
                 <p>Enter your details and start journey with our community</p>
-                <a class="ghost" id="signUp" href="{% url 'register' %}">Sign Up</a>
+                <a class="ghost" id="signUp" href="{% url 'register' %}"><button class="ghost" id="signOut">Sign Up</button></a>
             </div>
         </div>
     </div>
