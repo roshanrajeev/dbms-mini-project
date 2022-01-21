@@ -17,7 +17,7 @@
                 <p class="h4">{{question.text}}</p>
             </div>
             <div>
-                <p><a href="{% url 'profile' id=question.user.id %}" class="text-decoration-none text-dark" style="font-size: .95em; font-weight:650">{{question.user.first_name}} {{question.user.last_name}}</a></p>
+                <p><a href="{% url 'profile' id=question.user.id %}" class="text-decoration-none text-dark" style="font-size: .95em; font-weight:650">Posted by {{question.user.first_name}} {{question.user.last_name}}</a></p>
             </div>
         </div>
         <div class="toAns p-4">
