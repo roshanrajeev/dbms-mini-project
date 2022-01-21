@@ -6,10 +6,10 @@ from .views import (
     register,
     profile,
     add_question,
-    upvote,
+    vote_view,
     view_question,
     add_answer,
-    downvote,
+    # downvote,
 )
 
 urlpatterns = [
@@ -22,6 +22,6 @@ urlpatterns = [
     path("questions/add/", add_question, name="add_question"),
     path("questions/<int:id>/", view_question, name="view_question"),
     path("questions/<int:id>/add_answer/", add_answer, name="add_answer"),
-    path("upvote/<int:id>/", upvote, name="upvote"),
-    path("downvote/<int:id>/", downvote, name="downvote"),
+    path("vote/<int:id>/", vote_view, name="vote"),
+    # path("downvote/<int:id>/", downvote, name="downvote"),
 ]

@@ -37,7 +37,7 @@
                     <span style="margin-left: 6px; font-size: 14px;">{{answer.created_at}}</span>
                 </div>
                 <div>
-                    <p style="white-space: break-spaces;">{{answer.text}}</p>
+                    <p style="white-space: break-spaces;">{{answer.text}} | <b>{{ answer.upvote_count }}</b> votes <a href="{% url 'vote' id=answer.id %}">Upvote/Downvote</a></p>
                     <p>
                         {% if answer.user.type == 'TEACHER'%}
                         <span>F</span>&nbsp;&nbsp;
