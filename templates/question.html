@@ -6,6 +6,10 @@
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% endblock %}
 
+{% block scripts %}
+<script src="https://kit.fontawesome.com/bc39f131f9.js" crossorigin="anonymous"></script>
+{% endblock %}
+
 {% block content %} 
 {% include 'includes/header.html' %}
 
@@ -36,8 +40,13 @@
                     <a href="{% url 'profile' id=answer.user.id %}" class="text-decoration-none text-dark" style="font-size: .95em; font-weight:650; width:100%">{{answer.user.first_name}}</a>
                     <span style="margin-left: 6px; font-size: 14px;">{{answer.created_at}}</span>
                 </div>
-                <div>
-                    <p style="white-space: break-spaces;">{{answer.text}} | <b>{{ answer.upvote_count }}</b> votes <a href="{% url 'vote' id=answer.id %}">Upvote/Downvote</a></p>
+                <div class="pt-3">
+                    <p style="white-space: break-spaces;">{{answer.text}}</p>
+                    <div class="upvote ps-1">
+                        <a href="{% url 'vote' id=answer.id %}" class="text-dark"><i class="fas fa-thumbs-up"></i></a>
+                        <b>{{ answer.upvote_count }}</b> votes
+                        <!-- <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4 3 15h6v5h6v-5h6z" class="icon_svg-stroke icon_svg-fill" stroke-width="1.5" stroke="#666" fill="none" stroke-linejoin="round"></path></svg> -->
+                    </div>
                     <p>
                         {% if answer.user.type == 'TEACHER'%}
                         <span>F</span>&nbsp;&nbsp;
