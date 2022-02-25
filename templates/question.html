@@ -42,11 +42,24 @@
                 </div>
                 <div class="pt-3">
                     <p style="white-space: break-spaces;">{{answer.text}}</p>
+
+                    {% if voted %}
+                        <div class="upvote ps-1">
+                            <a href="{% url 'vote' id=answer.id %}" class="text-dark"><i class="fas fa-thumbs-up" style="color: blue;"></i></a>
+                            <b>{{ answer.upvote_count }}</b> votes
+                            <!-- <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4 3 15h6v5h6v-5h6z" class="icon_svg-stroke icon_svg-fill" stroke-width="1.5" stroke="#666" fill="none" stroke-linejoin="round"></path></svg> -->
+                        </div>
+
+                    {% else %}
+
                     <div class="upvote ps-1">
                         <a href="{% url 'vote' id=answer.id %}" class="text-dark"><i class="fas fa-thumbs-up"></i></a>
                         <b>{{ answer.upvote_count }}</b> votes
                         <!-- <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4 3 15h6v5h6v-5h6z" class="icon_svg-stroke icon_svg-fill" stroke-width="1.5" stroke="#666" fill="none" stroke-linejoin="round"></path></svg> -->
                     </div>
+
+                    {% endif %}
+
                     <p>
                         {% if answer.user.type == 'TEACHER'%}
                         <span>F</span>&nbsp;&nbsp;

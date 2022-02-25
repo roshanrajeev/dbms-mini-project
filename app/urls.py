@@ -9,6 +9,7 @@ from .views import (
     vote_view,
     view_question,
     add_answer,
+    activity_view
     # downvote,
 )
 
@@ -23,5 +24,6 @@ urlpatterns = [
     path("questions/<int:id>/", view_question, name="view_question"),
     path("questions/<int:id>/add_answer/", add_answer, name="add_answer"),
     path("vote/<int:id>/", vote_view, name="vote"),
+    path("activities/", activity_view, name="activities"),
     # path("downvote/<int:id>/", downvote, name="downvote"),
 ]
