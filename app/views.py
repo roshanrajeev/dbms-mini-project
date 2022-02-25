@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 
-from .models import Answer, Question, Upvote, User
+from .models import Answer, Question, Upvote, User, Profile
 
 from .forms import AnswerForm, LoginForm, QuestionForm, RegisterForm
 
@@ -94,6 +94,11 @@ def profile(request, id):
         return HttpResponseNotFound()
 
     context["user"] = user
+    try:
+        profile = Profile.objects.get(user=user)
+        context['profile'] = profile
+    except Profile.DoesNotExist:
+        pass
     return render(request, "profile.html", context)
 
 
@@ -119,7 +124,6 @@ def view_question(request, id):
         question = Question.objects.get(id=id)
     except (Question.DoesNotExist):
         return HttpResponseNotFound()
-
     answers = Answer.objects.filter(question=question).order_by('-upvote_count')
 
     context["question"] = question
@@ -181,3 +185,7 @@ def vote_view(request, id):
         answer.save()
         print("UpVoted")
         return redirect('view_question', id=answer.question.id)
+
+
+def activity_view(request):
+    return render(request, "activity.html")
